@@ -18,6 +18,11 @@ defmodule DiscussWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+
+    live "/topics", TopicLive.Index, :index
+    live "/topics/new", TopicLive.Form, :new
+    live "/topics/:id", TopicLive.Show, :show
+    live "/topics/:id/edit", TopicLive.Form, :edit
   end
 
   # Other scopes may use custom stacks.
